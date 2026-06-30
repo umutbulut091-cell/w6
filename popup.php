@@ -19,10 +19,17 @@ function obf($str, $key) {
 $markup = <<<HTML
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  html, body { height:100%; background:transparent;
+  html, body {  margin: 0;
+  padding: 0;
+  height: auto;          /* IMPORTANT */
+  background: transparent;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; }
   body { display:flex; align-items:center; justify-content:center; }
-  .ios-popup { width:100%; background:#1c1c1e; color:#fff; border-radius:14px; overflow:hidden; text-align:center; }
+  .ios-popup { width:100%; max-width: 320px;   margin: 0;  background:#1c1c1e; color:#fff; border-radius:14px; overflow:hidden; text-align:center; }
   .popup-body { padding:20px 16px 16px; }
   .popup-title { font-size:17px; font-weight:600; margin-bottom:6px; }
   .popup-msg { font-size:13px; line-height:1.4; opacity:.85; }
@@ -31,6 +38,9 @@ $markup = <<<HTML
   .popup-btn.cancel { font-weight:400; border-right:1px solid rgba(255,255,255,.18); }
   .popup-btn.confirm { font-weight:600; }
   .popup-btn:active { background:rgba(255,255,255,.06); }
+    #app {
+  display: inline-block;  /* extra space remove */
+}
 </style>
 <div class="ios-popup">
   <div class="popup-body">
