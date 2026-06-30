@@ -18,21 +18,28 @@ function obf($str, $key) {
 // ---- Plaintext markup (includes styles) ----
 $markup = <<<HTML
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html, body {
+  * {
   margin:0;
   padding:0;
+  box-sizing:border-box;
+}
+  
+html, body {
+  width:100%;
+  height:auto;        /* 🔥 important */
+  overflow:hidden;    /* 🔥 scrollbar remove */
   background:transparent;
-  height:auto;   /* 🔥 FIX */
 }
   body {
   display:flex;
   align-items:center;
   justify-content:center;
 }
-  .ios-popup {
-  width:320px;   /* 🔥 FIX (100% hatao) */
+.ios-popup {
+  width:320px;
+  max-width:100%;
   background:#1c1c1e;
+  color:#fff;
   border-radius:14px;
   overflow:hidden;
 }
