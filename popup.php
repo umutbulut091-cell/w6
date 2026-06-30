@@ -34,6 +34,7 @@ html, body {
   display:flex;
   align-items:center;
   justify-content:center;
+  min-height:auto;
 }
 .ios-popup {
   width:320px;
