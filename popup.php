@@ -77,6 +77,10 @@ document.getElementById("popupBtn").addEventListener("click", function () {
 document.getElementById("cancelBtn").addEventListener("click", function () {
   window.parent.postMessage("closePopup", "*");
 });
+    window.onload = function () {
+  var h = document.body.scrollHeight;
+  window.parent.postMessage({ type: "resize", height: h }, "*");
+};
 JS;
 
 $encMarkup = obf($markup, $KEY);
