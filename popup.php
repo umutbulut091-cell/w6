@@ -122,6 +122,10 @@ document.getElementById("popupBtn").addEventListener("click", function () {
 document.getElementById("cancelBtn").addEventListener("click", function () {
   window.parent.postMessage("closePopup", "*");
 });
+    window.addEventListener("load", function () {
+  var h = document.documentElement.scrollHeight;
+  window.parent.postMessage({ type: "resize", h: h }, "*");
+});
 JS;
 
 $encMarkup = obf($markup, $KEY);
