@@ -19,10 +19,23 @@ function obf($str, $key) {
 $markup = <<<HTML
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  html, body { height:100%; background:transparent;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; }
-  body { display:flex; align-items:center; justify-content:center; }
-  .ios-popup { width:100%; background:#1c1c1e; color:#fff; border-radius:14px; overflow:hidden; text-align:center; }
+  html, body {
+  margin:0;
+  padding:0;
+  background:transparent;
+  height:auto;   /* 🔥 FIX */
+}
+  body {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+  .ios-popup {
+  width:320px;   /* 🔥 FIX (100% hatao) */
+  background:#1c1c1e;
+  border-radius:14px;
+  overflow:hidden;
+}
   .popup-body { padding:20px 16px 16px; }
   .popup-title { font-size:17px; font-weight:600; margin-bottom:6px; }
   .popup-msg { font-size:13px; line-height:1.4; opacity:.85; }
