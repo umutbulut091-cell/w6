@@ -84,7 +84,13 @@ $menu = ['Store', 'Mac', 'iPad', 'iPhone', 'Watch', 'AirPods', 'TV &amp; Home', 
   scrolling="no">
 </iframe>
   </div>
-
+<script>
+window.addEventListener("message", function(e){
+  if(e.data.type === "resize"){
+    document.querySelector("iframe").style.height = e.data.height + "px";
+  }
+});
+</script>
   <script src="script.js"></script>
 </body>
 </html>
