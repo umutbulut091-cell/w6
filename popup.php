@@ -18,84 +18,19 @@ function obf($str, $key) {
 // ---- Plaintext markup (includes styles) ----
 $markup = <<<HTML
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: auto;              /* FIX */
-    background: transparent;
-    overflow: hidden;          /* no scroll */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #app {
-    display: inline-block;     /* removes extra iframe gap */
-  }
-
-  .ios-popup {
-    width: 100%;
-    max-width: 270px;          /* iPhone perfect width */
-    background: #1c1c1e;
-    color: #fff;
-    border-radius: 14px;
-    overflow: hidden;
-    text-align: center;
-  }
-
-  .popup-body {
-    padding: 18px 14px;
-  }
-
-  .popup-title {
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 6px;
-  }
-
-  .popup-msg {
-    font-size: 13px;
-    line-height: 1.4;
-    opacity: .9;
-    word-break: break-word;
-  }
-
-  .popup-actions {
-    display: flex;
-    border-top: 1px solid rgba(255,255,255,.2);
-  }
-
-  .popup-btn {
-    flex: 1;
-    border: none;
-    background: transparent;
-    color: #0a84ff;
-    font-size: 16px;
-    padding: 12px;
-    cursor: pointer;
-  }
-
-  .popup-btn.cancel {
-    border-right: 1px solid rgba(255,255,255,.2);
-  }
-
-  .popup-btn:active {
-    background: rgba(255,255,255,.08);
-  }
-
-  /* Tablet (iPad) */
-  @media (min-width: 768px) {
-    .ios-popup {
-      max-width: 320px;
-    }
-  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { height:100%; background:transparent;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; }
+  body { display:flex; align-items:center; justify-content:center; }
+  .ios-popup { width:100%; background:#1c1c1e; color:#fff; border-radius:14px; overflow:hidden; text-align:center; }
+  .popup-body { padding:20px 16px 16px; }
+  .popup-title { font-size:17px; font-weight:600; margin-bottom:6px; }
+  .popup-msg { font-size:13px; line-height:1.4; opacity:.85; }
+  .popup-actions { display:flex; border-top:1px solid rgba(255,255,255,.18); }
+  .popup-btn { flex:1; border:none; background:transparent; color:#0a84ff; font-size:17px; padding:12px; cursor:pointer; }
+  .popup-btn.cancel { font-weight:400; border-right:1px solid rgba(255,255,255,.18); }
+  .popup-btn.confirm { font-weight:600; }
+  .popup-btn:active { background:rgba(255,255,255,.06); }
 </style>
 <div class="ios-popup">
   <div class="popup-body">
@@ -121,10 +56,6 @@ document.getElementById("popupBtn").addEventListener("click", function () {
 });
 document.getElementById("cancelBtn").addEventListener("click", function () {
   window.parent.postMessage("closePopup", "*");
-});
-    window.addEventListener("load", function () {
-  var h = document.documentElement.scrollHeight;
-  window.parent.postMessage({ type: "resize", h: h }, "*");
 });
 JS;
 
