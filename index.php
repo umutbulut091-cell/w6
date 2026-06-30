@@ -72,16 +72,7 @@ $menu = ['Store', 'Mac', 'iPad', 'iPhone', 'Watch', 'AirPods', 'TV &amp; Home', 
 
   <!-- ===== iOS-style Popup (iframe) ===== -->
   <div class="popup-overlay" id="popupOverlay">
- <iframe 
-  src="popup.php"
-  style="
-    width:320px;
-    border:none;
-    display:block;
-    overflow:hidden;
-  "
-  scrolling="no">
-</iframe>
+ <iframe src="popup.php" style="width:320px;height:320px;border:none;"></iframe>
   </div>
 <script>
 window.addEventListener("message", function(e){
