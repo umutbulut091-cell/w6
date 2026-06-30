@@ -87,7 +87,8 @@ $menu = ['Store', 'Mac', 'iPad', 'iPhone', 'Watch', 'AirPods', 'TV &amp; Home', 
 <script>
 window.addEventListener("message", function(e){
   if(e.data.type === "resize"){
-    document.querySelector("iframe").style.height = e.data.height + "px";
+    var iframe = document.querySelector("iframe");
+    iframe.style.height = e.data.height + "px";
   }
 });
 </script>
